@@ -60,3 +60,29 @@ REPOSITORY                  TAG                 IMAGE ID            CREATED     
 aws-lambda-python3.6-test   latest              faeb7e6b0b91        3 minutes ago       2.1GB
 ```
 
+
+## Packging
+```
+$ docker run --rm -v "$PWD":/var/task aws-lambda-python3.6-test:latest
+WARNING: You are using pip version 20.0.2; however, version 20.1 is available.
+You should consider upgrading via the '/var/lang/bin/python3.6 -m pip install --upgrade pip' command.
+  adding: function.py (deflated 35%)
+updating: function.py (deflated 35%)
+  adding: Dockerfile (deflated 21%)
+  adding: README.md (deflated 54%)
+  adding: __pycache__/ (stored 0%)
+  adding: __pycache__/function.cpython-36.pyc (deflated 22%)
+  adding: requirements.txt (stored 0%)
+
+$ unzip -Z ./deploy_package.zip 
+Archive:  ./deploy_package.zip
+Zip file size: 2630 bytes, number of entries: 6
+-rw-r--r--  3.0 unx      261 tx defX 20-Apr-30 21:36 function.py
+-rw-r--r--  3.0 unx      229 tx defX 20-Apr-30 21:39 Dockerfile
+-rw-r--r--  3.0 unx     2330 tx defX 20-Apr-30 21:52 README.md
+drwxr-xr-x  3.0 unx        0 bx stor 20-Apr-30 21:31 __pycache__/
+-rw-r--r--  3.0 unx      297 bx defX 20-Apr-30 21:31 __pycache__/function.cpython-36.pyc
+-rw-r--r--  3.0 unx        0 bx stor 20-Apr-30 21:54 requirements.txt
+6 files, 3117 bytes uncompressed, 1654 bytes compressed:  46.9%
+```
+
