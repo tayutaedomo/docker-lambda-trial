@@ -86,3 +86,35 @@ drwxr-xr-x  3.0 unx        0 bx stor 20-Apr-30 21:31 __pycache__/
 6 files, 3117 bytes uncompressed, 1654 bytes compressed:  46.9%
 ```
 
+
+## Deploy
+1: Create a new role for lambda execution
+2: Create a new user for deploy operation
+3: Edit config and credential files
+
+```
+$ aws lambda create-function \
+  --function-name docker-lambda-python-test \
+  --zip-file fileb://deploy_package.zip \
+  --handler function.my_handler \
+  --runtime python3.6 \
+  --timeout 10 \
+  --memory-size 256 \
+  --role arn:aws:iam::xxxxx:role/docker-lambda-exec-role \
+  --profile docker-lambda-deploy
+{
+    "CodeSha256": "++Fs6HmIAl9oDllAhCJwLJE2UlkLSK0JloLc0a7SOJA=",
+    "FunctionName": "docker-lambda-python-test",
+    "CodeSize": 2630,
+    "MemorySize": 256,
+    "FunctionArn": "arn:aws:lambda:us-east-1:xxxxx:function:docker-lambda-python-test",
+    "Version": "$LATEST",
+    "Role": "arn:aws:iam::xxxxx:role/docker-lambda-exec-role",
+    "Timeout": 10,
+    "LastModified": "2020-05-05T10:32:44.260+0000",
+    "Handler": "function.my_handler",
+    "Runtime": "python3.6",
+    "Description": ""
+}
+```
+
