@@ -118,3 +118,24 @@ $ aws lambda create-function \
 }
 ```
 
+```
+$ aws lambda update-function-code \
+  --function-name docker-lambda-python-test \
+  --zip-file fileb://deploy_package.zip \
+  --profile docker-lambda-deploy
+{
+    "CodeSha256": "++Fs6HmIAl9oDllAhCJwLJE2UlkLSK0JloLc0a7SOJA=",
+    "FunctionName": "docker-lambda-python-test",
+    "CodeSize": 2630,
+    "MemorySize": 256,
+    "FunctionArn": "arn:aws:lambda:us-east-1:xxxxx:function:docker-lambda-python-test",
+    "Version": "$LATEST",
+    "Role": "arn:aws:iam::xxxxx:role/docker-lambda-exec-role",
+    "Timeout": 10,
+    "LastModified": "2020-05-05T10:48:09.197+0000",
+    "Handler": "function.my_handler",
+    "Runtime": "python3.6",
+    "Description": ""
+}
+```
+
